@@ -12,7 +12,7 @@ class IR_main():
 		self.use_beat = use_beat
 		self.use_training_data = use_training_data
 		self.use_closure = use_closure
-		self.maximum_sumbol_num = maximum_sumbol_num
+		self.maximum_sumbol_num = maximum_symbol_num
 		self.makedata = make_data.Data()
 		self.ir_analysis = analysis.IR_analyser(num_of_symbols)
 		self.c_p = CP.conditional_P()
