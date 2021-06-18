@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 class IR_main():
 	#使用するルールを決定
-	def __init__(self, beat = 1.0, use_beat = True, use_training_data = True, use_closure = True, maximum_sumbol_num = 2, num_of_symbols = 16):
+	def __init__(self, beat = 1.0, use_beat = True, use_training_data = True, use_closure = True, maximum_symbol_num = 2, num_of_symbols = 16):
 		self.boundary = beat
 		self.use_beat = use_beat
 		self.use_training_data = use_training_data
