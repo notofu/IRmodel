@@ -2,6 +2,7 @@
 単旋律を対象に音楽理論暗意実現モデル[Narmour 1992]分析を行うpythonスクリプト
 
 # DEMO
+<img width="1022" alt="スクリーンショット 2021-06-18 10 00 24" src="https://user-images.githubusercontent.com/25402754/122490300-a9b7f880-d01c-11eb-902e-05126eb2c836.png">
 
 
 
