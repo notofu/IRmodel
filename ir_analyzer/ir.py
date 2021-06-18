@@ -40,16 +40,17 @@ class IR_main():
 		
 		#シンボル付与
 		#print(closure_index)
-		symbols, symbol_onsetnotes = self.ir_analysis.ir_analysis_main(_pitch, integrated_features, closure_index, maximum_sumbol_num = self.maximum_sumbol_num)
+		symbols, symbol_start_notes, distance_from_symbol_start_note = self.ir_analysis.ir_analysis_main(_pitch, integrated_features, closure_index, maximum_sumbol_num = self.maximum_sumbol_num)
 		
 		#シンボル開始音からの距離
 		
 		#休符を復元
 		symbols = self._insert_rests(symbols, rest_index, integrated_rests)
-		symbol_onsetnotes = self._insert_rests(symbol_onsetnotes, rest_index, integrated_rests)
-		_pitch = self._insert_rests(_pitch, rest_index, integrated_rests)
+		symbol_start_notes = self._insert_rests(symbol_start_notes, rest_index, integrated_rests)
+		distance_from_symbol_start_note = self._insert_rests(distance_from_symbol_start_note, rest_index, integrated_rests)
 		
-		return symbols, symbol_onsetnotes, onset, _pitch, duration, beat, closure_index
+		onset, pitch, duration, beat = self.makedata.make_data(file_name)
+		return symbols, symbol_start_notes, onset, pitch, duration, beat, closure_index, distance_from_symbol_start_note
 
 		
 	#連続する休符を1つにまとめる（MIDIを入力とする場合には不要）
