@@ -1,4 +1,4 @@
- # IR model 分析器
+ # I-R model 分析器
 単旋律を対象に音楽理論暗意実現モデル[Narmour 1992]分析を行うpythonスクリプト
 
 # DEMO
