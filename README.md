@@ -26,7 +26,7 @@ python3 main.py
 
 パラメータ
 ``` Python: main.py
-maximum_symbol_num: 各音符に付与される最大シンボル数
+maximum_symbol_num: 各音符に付与される最大シンボル数(1 ~ 3)
 num_of_symbols: シンボルの種類(8または16)
 ```
 # Author
