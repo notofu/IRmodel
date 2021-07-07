@@ -23,13 +23,21 @@ class IR_analyser():
 				
 			tmp_duration = duration[i]
 		
-		#print(IOI_pitch)
-		#print(IOI_duraiton)
+		print(IOI_pitch)
+		print(IOI_duraiton)
 		closure_index = []
+		pre_note_is_closure = 0
 		for i, _duration in enumerate(IOI_duraiton):
 			if(i > 0 and IOI_pitch[i] > 0):
 				if(tmp__duration*2.0 <= _duration):
 					closure_index.append(i)
+					pre_note_is_closure = 1
+				elif(pre_note_is_closure == 1 and tmp__duration < _duration):
+						closure_index.pop(-1)
+						closure_index.append(i)
+				else:
+					pre_note_is_closure = 0
+					
 			tmp__duration = _duration
 		
 		if(pitch[0] == -1):
@@ -46,7 +54,7 @@ class IR_analyser():
 		self._marge_symbol(distance_from_symbol_start_note, symbol_start_matrix)
 		#print(distance_from_symbol_start_note)
 		
-		return symbol_matrix, symbol_start_matrix
+		return symbol_matrix, symbol_start_matrix, distance_from_symbol_start_note
 		
 	#シンボル付与
 	def _assign_ir_symbol(self, pitch, closure_devided_features, closure_devided_index, symbol_num, maximum_sumbol_num):
@@ -60,7 +68,6 @@ class IR_analyser():
 				#クロージャを跨ぐ音符へのシンボル付与を避ける
 				if(len(x) -2 >  j):
 					#最大付与数よりも小さい場合
-					#print(i, j)
 					_index = closure_devided_index[i][j]
 					if(np.sum(symbol_matrix[_index]) < maximum_sumbol_num and np.sum(symbol_matrix[_index+1]) < maximum_sumbol_num and np.sum(symbol_matrix[_index+2]) < maximum_sumbol_num):
 						#symbol assignment
