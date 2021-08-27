@@ -163,7 +163,7 @@ class Symbol_assignment():
 
 		if(d1 == 0 and d2 == 0):
 			return "yes"
-		elif(d1*d2 > 0):
+		elif(d1*d2 >= 0):
 			return "yes"
 		else:
 			return "no"
